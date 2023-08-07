@@ -10,11 +10,13 @@ const initServer = async () => {
         typeDefs: `
             type Query {
                 hello: String
+                sayMyname(name: String!): String
             }
         `,
         resolvers: {
             Query: {
                 hello: () => 'Hello world!',
+                sayMyname: (parent, args) => `You are  ${args.name}!`,
             }, 
         },
     });
